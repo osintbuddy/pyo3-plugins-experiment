@@ -1,22 +1,7 @@
-use pyo3::{prelude::*, py_run};
-use pyo3::types::{IntoPyDict, PyFunction};
+use pyo3::{prelude::*};
+use pyo3::types::{IntoPyDict};
 use pyo3::ffi::c_str;
-#[pyclass]
-struct UserData {
-    id: u32,
-    name: String,
-}
 
-#[pymethods]
-impl UserData {
-    fn as_tuple(&self) -> (u32, String) {
-        (self.id, self.name.clone())
-    }
-
-    fn __repr__(&self) -> PyResult<String> {
-        Ok(format!("User {}(id: {})", self.name, self.id))
-    }
-}
 fn main() -> PyResult<()> {
     Python::with_gil(|py| {
         let locals = [("selenium", py.import("selenium")?)].into_py_dict(py)?;
