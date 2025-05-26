@@ -1,5 +1,5 @@
 [package]
-name = "rust-python-plugins-experiment"
+name = "pyo3-plugins-experiment"
 version = "0.1.0"
 edition = "2024"
 
